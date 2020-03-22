@@ -1,0 +1,28 @@
+@import "./Gloabal.scss" ;
+nav{
+    background:$dark-black;
+    color:$white;
+    display:flex;
+    justify-content:space-between;
+    padding: 5px 0;
+    line-height:40px;
+}
+#web-name{
+    font-size: 26px;
+}
+#nav-list{
+    min-width:200px;
+    display:flex;
+    justify-content:space-around;
+    li{
+        width:50%;
+        list-style-type: none;
+        font-size: 20px;
+    }
+    li:hover{
+        cursor: pointer;
+    }
+}
+.this-tab{
+    border-bottom: 3px $white solid;
+}
