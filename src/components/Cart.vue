@@ -22,6 +22,7 @@ export default {
     },
     computed: {
         total:function(){
+            //計算購物車總和
             let sum = 0;
             this.cartList.forEach(ele => {
                 sum += (ele.amount * ele.price);
