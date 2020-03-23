@@ -1,4 +1,7 @@
 @import "./Gloabal.scss" ;
+html,body {
+    overflow-x: hidden;
+}
 nav{
     background:$dark-black;
     color:$white;
@@ -6,6 +9,7 @@ nav{
     justify-content:space-between;
     padding: 5px 0;
     line-height:40px;
+    width:100%;
 }
 #web-name{
     font-size: 26px;

@@ -34,11 +34,11 @@ export default {
       /** 表示目前分頁狀態，預設是顯示購物頁 **/
       /** remainingAmount表示剩餘數量 **/
       GoodsList:[
-        {id:1,name:"商品1", price:300, remainingAmount:5, img:"https://fakeimg.pl/350x200/?text=Goods1"},
-        {id:2,name:"商品2", price:720, remainingAmount:2, img:"https://fakeimg.pl/350x200/?text=Goods2"},
-        {id:3,name:"商品3", price:599, remainingAmount:15, img:"https://fakeimg.pl/350x200/?text=Goods3"},
-        {id:4,name:"商品4", price:199, remainingAmount:0, img:"https://fakeimg.pl/350x200/?text=Goods4"},
-        {id:5,name:"商品5", price:1500, remainingAmount:3, img:"https://fakeimg.pl/350x200/?text=Goods5"},
+        {id:1,name:"商品1", price:300, remainingAmount:5, img:"https://fakeimg.pl/350x200/?text=Product1"},
+        {id:2,name:"商品2", price:720, remainingAmount:2, img:"https://fakeimg.pl/350x200/?text=Product2"},
+        {id:3,name:"商品3", price:599, remainingAmount:15, img:"https://fakeimg.pl/350x200/?text=Product3"},
+        {id:4,name:"商品4", price:199, remainingAmount:0, img:"https://fakeimg.pl/350x200/?text=Product4"},
+        {id:5,name:"商品5", price:1500, remainingAmount:3, img:"https://fakeimg.pl/350x200/?text=Product5"},
       ],
       /** amount表示目前購物車之商品數量 **/
       CartList:[
@@ -63,6 +63,9 @@ export default {
   margin:0;
   padding:0;
   font-family: $font-style;
+}
+li{
+  list-style-type:none;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
