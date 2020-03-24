@@ -11,7 +11,8 @@
                     <div class="product-name">品名:{{ item.name }}</div>
                     <div class="product-price">{{item.price}}元</div>
                     <div class="product-remain-amount">剩餘數量:{{ item.remainingAmount }}</div>
-                    <button v-if="item.remainingAmount>0" class="add-cart">加入購物車</button>
+                    <button v-if="item.remainingAmount>0" class="add-cart"
+                    @click="addToCart(item)">加入購物車</button>
                     <div v-else class="disable" disabled>沒有庫存了</div>
                 </div>
             </li>
@@ -22,11 +23,38 @@
 <script>
 export default {
     props:[
-        "shopList"
+        "shopList","cartList"
     ],
     data () {
         return {
             msg:"加入購物車即可保留，所以加入購物車剩餘數量就會減少了"
+        }
+    },
+    methods:{
+        /** 更新購物車以及購物清單 **/
+        updateList:function(newCartList,newProductList){
+            this.$emit('updateList',newCartList,newProductList);
+        },
+        /** 加入至購物車 **/
+        addToCart:function(item){
+            const newCartList = this.cartList.slice(0);
+            const newProductList = this.shopList.slice(0);
+            let finded = false;
+            newCartList.forEach(ele => {
+                if(ele.goodsID == item.id){
+                    finded = true;
+                    ele.amount += 1;
+                }
+            });
+            if(!finded){
+                newCartList.push({goodsID:item.id,name:item.name, price:item.price, amount:1, img:item.img});
+            }
+            newProductList.forEach(e => {
+                if(e.id == item.id){
+                    e.remainingAmount -= 1;
+                }
+            });
+            this.updateList(newCartList,newProductList);
         }
     }
 }
@@ -49,18 +77,15 @@ export default {
                 background-color: $hover-gray;
             }
             .product-name{
-                
                 font-size: 20px;
                 font-weight: bolder;
             }
             .product-price{
-                
                 font-size: 24px;
                 font-weight: bolder;
                
             }
             .product-remain-amount{
-                
                 color:red;
                 font-weight: bolder;
                 

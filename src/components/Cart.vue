@@ -11,14 +11,14 @@
                     <div class="cart-name">品名:{{ item.name }}</div>
                     <div class="cart-price">{{item.price}}元</div>
                     <div class="cart-amount">購物車數量:{{ item.amount }}</div>
-                    <button class="add-amount">&nbsp;＋&nbsp;</button>
-                    <button class="minus-amount">&nbsp;－&nbsp;</button>
+                    <button class="add-amount" @click="addAmount(item)">&nbsp;＋&nbsp;</button>
+                    <button class="minus-amount" @click="minusAmount(item)">&nbsp;－&nbsp;</button>
                 </div>
             </li>
         </ul>
         <div id="tail">
             <div id="total">總計:${{ total }}</div>
-            <button id="payment">結帳</button>
+            <button id="payment" @click="payment()">結帳</button>
             <div></div>
         </div>
     </div>
@@ -27,7 +27,7 @@
 <script>
 export default {
     props:[
-        "cartList"
+        "cartList","shopList"
     ],
     data () {
         return {
@@ -42,6 +42,54 @@ export default {
                 sum += (ele.amount * ele.price);
             });
             return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        },
+    },
+    methods:{
+        /** 更新購物車以及購物清單 **/
+        updateList:function(newCartList,newProductList){
+            this.$emit('updateList',newCartList,newProductList);
+        },
+        /** 增加數量 **/
+        addAmount:function(item){
+            const newCartList = this.cartList.slice(0);
+            const newProductList = this.shopList.slice(0);
+            newCartList.forEach(ele => {
+                if(ele.goodsID == item.goodsID){
+                    ele.amount += 1;
+                }
+            });
+            newProductList.forEach(ele => {
+                if(ele.id == item.goodsID){
+                    ele.amount -= 1;
+                }
+            });
+            this.updateList(newCartList,newProductList);
+        },
+        /** 減少數量 **/
+        minusAmount:function(item){
+            const newCartList = this.cartList.slice(0);
+            const newProductList = this.shopList.slice(0);
+            newCartList.forEach((ele, index, object) => {
+                if(ele.goodsID == item.goodsID){
+                    ele.amount -= 1;
+                    if(ele.amount == 0){
+                        object.splice(index, 1);
+                    }
+                }
+            });
+            newProductList.forEach(ele => {
+                if(ele.id == item.goodsID){
+                    ele.remainingAmount += 1;
+                }
+            });
+            this.updateList(newCartList,newProductList);
+        },
+        /** 結帳 **/
+        payment:function(){
+            alert("一共" + this.total + "元");
+            const newCartList = [];
+            const newProductList = this.shopList.slice(0);
+            this.updateList(newCartList,newProductList);
         }
     }
 }

@@ -8,11 +8,13 @@
       </ul>
     </nav>
     <div v-if="ShopTab">
-      <Shop :shop-list="GoodsList"
+      <Shop :shop-list="GoodsList" :cart-list="CartList"
+      @updateList="updateList"
       ></Shop>
     </div>
     <div v-if="CartTab">
-      <Cart :cart-list="CartList"
+      <Cart :cart-list="CartList" :shop-list="GoodsList"
+      @updateList="updateList"
       ></Cart>
     </div>
   </div>
@@ -51,6 +53,13 @@ export default {
     chageTab:function(){
       this.ShopTab = !this.ShopTab;
       this.CartTab = !this.CartTab;
+    },
+    updateList:function(newCartList,newProductList){
+      this.CartList = newCartList.sort((a,b) => {
+        return a.goodsID - b.goodsID;
+      });
+      
+      this.GoodsList = newProductList;
     }
   }
 }
