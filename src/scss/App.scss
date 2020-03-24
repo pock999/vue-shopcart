@@ -30,3 +30,15 @@ nav{
 .this-tab{
     border-bottom: 3px $white solid;
 }
+@media screen and (max-width: 407px) {
+    #web-name{
+        font-size: 22px;
+    }
+    #nav-list{
+        li{
+            line-height: 70px;
+            font-size: 18px;
+            width:40%;
+        }
+    }
+}

@@ -7,11 +7,11 @@
         <li :class="{'this-tab':CartTab}" @click="chageTab()">購物車</li>
       </ul>
     </nav>
-    <div v-show="ShopTab">
+    <div v-if="ShopTab">
       <Shop :shop-list="GoodsList"
       ></Shop>
     </div>
-    <div v-show="CartTab">
+    <div v-if="CartTab">
       <Cart :cart-list="CartList"
       ></Cart>
     </div>

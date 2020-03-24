@@ -11,7 +11,8 @@
                     <div class="product-name">品名:{{ item.name }}</div>
                     <div class="product-price">{{item.price}}元</div>
                     <div class="product-remain-amount">剩餘數量:{{ item.remainingAmount }}</div>
-                    <button class="add-cart">加入購物車</button>
+                    <button v-if="item.remainingAmount>0" class="add-cart">加入購物車</button>
+                    <div v-else class="disable" disabled>沒有庫存了</div>
                 </div>
             </li>
         </ul>
@@ -33,6 +34,7 @@ export default {
 
 <style lang="scss">
     @import "./../scss/Gloabal.scss";
+    
     .product-list{
         display: grid;
         max-width:960px;
@@ -77,6 +79,11 @@ export default {
                     color:$light-black;
                     background-color: $white;
                 }
+            }
+            .disable{
+                font-size: 20px;
+                font-weight: bold;
+                color:$dark-gray;
             }
             .product-img-contain{
                 position: relative;
