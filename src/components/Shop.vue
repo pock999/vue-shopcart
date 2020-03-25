@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ msg }}
+        <span v-html="msg"></span>
         <ul class="product-list">
             <li v-for="item in shopList" :key="item.id" class="product-item">
                 <div class="product-img-contain">
@@ -27,7 +27,7 @@ export default {
     ],
     data () {
         return {
-            msg:"加入購物車即可保留，所以加入購物車剩餘數量就會減少了"
+            msg:"加入購物車即可保留<br/>因此加入購物車剩餘數量就會減少了"
         }
     },
     methods:{

@@ -310,9 +310,13 @@ export default {
             }
         }
         #tail{
+            grid-template-columns: 2fr 1fr 1fr;
+            #total{
+                font-size:22px;
+            }
             #payment{
-                font-size: 18px;
-                line-height: 28px;
+                font-size: 20px;
+                line-height: 24px;
             }
         }
     }
