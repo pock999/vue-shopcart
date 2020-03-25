@@ -27,7 +27,7 @@ export default {
     ],
     data () {
         return {
-            msg:"加入購物車即可保留<br/>因此加入購物車剩餘數量就會減少了"
+            msg:"加入購物車即可保留<br/>因此加入購物車剩餘數量就會減少了",
         }
     },
     methods:{
