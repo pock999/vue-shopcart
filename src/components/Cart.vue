@@ -14,6 +14,9 @@
                     <button class="add-amount" @click="addAmount(item)">&nbsp;＋&nbsp;</button>
                     <button class="minus-amount" @click="minusAmount(item)">&nbsp;－&nbsp;</button>
                 </div>
+                <button class="remove-product" @click="removeProduct(item)">
+                    &nbsp;Ｘ&nbsp;
+                </button>
             </li>
         </ul>
         <div id="tail">
@@ -80,6 +83,26 @@ export default {
             newProductList.forEach(ele => {
                 if(ele.id == item.goodsID){
                     ele.remainingAmount += 1;
+                }
+            });
+            this.updateList(newCartList,newProductList);
+        },
+        /** 刪除項目 **/
+        removeProduct:function(item){
+            const newCartList = this.cartList.slice(0);
+            const newProductList = this.shopList.slice(0);
+
+            //將刪掉的數量存起來
+            let exceedAmount = 0;
+            newCartList.forEach((ele, index, object) => {
+                if(ele.goodsID == item.goodsID){
+                    exceedAmount += ele.amount;
+                    object.splice(index, 1);
+                }
+            });
+            newProductList.forEach(ele => {
+                if(ele.id == item.goodsID){
+                    ele.remainingAmount += exceedAmount;
                 }
             });
             this.updateList(newCartList,newProductList);
@@ -152,17 +175,41 @@ export default {
                 }
                 .add-amount,.minus-amount{
                     font-size: 30px;
-                    line-height: 28px;
-                    background-color: $light-black;
+                    line-height: 30px;
+                    // background-color: $light-black;
                     color:$white;
-                    border:5px solid $light-black;
-                    border-radius: 7px;
+                    // border:5px solid $light-black;
+                    border-radius: 3px;
                     margin:5px 10px;
+                    border:0;
                     &:hover{
                         cursor: pointer;
-                        color:$light-black;
-                        background-color: $white;
+                        opacity: 0.5;
                     }
+                }
+                
+                .add-amount{
+                    background-color: $btn-blue;
+                }
+                .minus-amount{
+                    background-color: $btn-orange;
+                }
+            }
+            .remove-product{
+                position: relative;
+                color:$dark-gray;
+                font-size: 20px;
+                line-height: 22px;
+                width:22px;
+                height:22px;
+                left:900px;
+                bottom: 150px;
+                border-radius: 3px;
+                margin:5px 10px;
+                border:0;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.7;
                 }
             }
         }
@@ -192,6 +239,15 @@ export default {
             }
         }
     }
+    @media screen and (max-width: 960px){
+        .cart-list{
+            .cart-item{
+                .remove-product{
+                    left:800px;
+                }
+            }
+        }
+    }
     @media screen and (max-width: $bigpad-screen){
         .cart-list{
             .cart-item{
@@ -200,6 +256,9 @@ export default {
                         left:-130px;
                         font-size: 22px;
                     }
+                }
+                .remove-product{
+                    left:650px;
                 }
             }
         }
@@ -213,6 +272,9 @@ export default {
                         top:150px;
                         font-size: 22px;
                     }
+                }
+                .remove-product{
+                    left:522px;
                 }
             }
         }
@@ -237,6 +299,20 @@ export default {
                         margin-top:50px;
                     }
                 }
+                .remove-product{
+                    left:80%;
+                    bottom:100%;
+                    font-size: 28px;
+                    line-height: 32px;
+                    width:32px;
+                    height:32px;
+                }
+            }
+        }
+        #tail{
+            #payment{
+                font-size: 18px;
+                line-height: 28px;
             }
         }
     }

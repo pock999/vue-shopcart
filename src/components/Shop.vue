@@ -94,15 +94,16 @@ export default {
                 
                 font-size: 18px;
                 line-height: 22px;
-                background-color: $light-black;
+                background-color: $bn-color;
                 color:$white;
-                border:5px solid $light-black;
-                border-radius: 5px;
-                
+                border-radius: 2px;
+                margin-top:5px;
+                padding:3px 5px;
+                border: 0;
                 &:hover{
                     cursor: pointer;
-                    color:$light-black;
-                    background-color: $white;
+                    color:$white;
+                    background-color: $bn-color-hover;
                 }
             }
             .disable{

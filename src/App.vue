@@ -36,16 +36,16 @@ export default {
       /** 表示目前分頁狀態，預設是顯示購物頁 **/
       /** remainingAmount表示剩餘數量 **/
       GoodsList:[
-        {id:1,name:"商品1", price:300, remainingAmount:5, img:"https://fakeimg.pl/350x200/?text=Product1"},
-        {id:2,name:"商品2", price:720, remainingAmount:2, img:"https://fakeimg.pl/350x200/?text=Product2"},
-        {id:3,name:"商品3", price:599, remainingAmount:15, img:"https://fakeimg.pl/350x200/?text=Product3"},
-        {id:4,name:"商品4", price:199, remainingAmount:0, img:"https://fakeimg.pl/350x200/?text=Product4"},
-        {id:5,name:"商品5", price:1500, remainingAmount:3, img:"https://fakeimg.pl/350x200/?text=Product5"},
+        {id:1,name:"商品1", price:300, remainingAmount:5, img:"https://fakeimg.pl/350x200/EBBF96/eeeeee?text=Product1"},
+        {id:2,name:"商品2", price:720, remainingAmount:2, img:"https://fakeimg.pl/350x200/A9BF9B/ffffff?text=Product2"},
+        {id:3,name:"商品3", price:599, remainingAmount:15, img:"https://fakeimg.pl/350x200/ECAC20/ffffff?text=Product3"},
+        {id:4,name:"商品4", price:199, remainingAmount:0, img:"https://fakeimg.pl/350x200/6C615B/eeeeee?text=Product4"},
+        {id:5,name:"商品5", price:1500, remainingAmount:3, img:"https://fakeimg.pl/350x200/8EC5FB/ffffff?text=Product5"},
       ],
       /** amount表示目前購物車之商品數量 **/
       CartList:[
-        {goodsID:2,name:"商品2", price:720, amount:7, img:"https://fakeimg.pl/350x200/?text=Goods2"},
-        {goodsID:4,name:"商品4", price:199, amount:1, img:"https://fakeimg.pl/350x200/?text=Goods4"},
+        {goodsID:2,name:"商品2", price:720, amount:7, img:"https://fakeimg.pl/350x200/A9BF9B/ffffff?text=Product2"},
+        {goodsID:4,name:"商品4", price:199, amount:1, img:"https://fakeimg.pl/350x200/6C615B/eeeeee?text=Product4"},
       ]
     }
   },
