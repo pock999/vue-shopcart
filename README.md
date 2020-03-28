@@ -1,24 +1,10 @@
 # shopping-cart
 
-## Project setup
-```
-npm install
-```
+## Demo
+https://pock999.github.io/vue-shopcart/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Screenshots
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### 手機版面
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Function description
