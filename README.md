@@ -38,6 +38,6 @@ https://pock999.github.io/vue-shopcart/
   - 本專案**沒有使用**_Vue Router_
 
   - 本專案是練習**vue 組件溝通**
-    ($emit/rop使用練習)
+    ($emit/props使用練習)
 
   - 嘗試套用**SCSS**
